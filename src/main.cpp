@@ -14,6 +14,8 @@
 #include "logger.hpp"
 #include "connection_manager.hpp"
 
+#include <unistd.h>
+
 #include <csignal>
 #include <cstdlib>
 #include <cstring>
@@ -28,7 +30,7 @@ volatile std::sig_atomic_t signal_received = 0;
  */
 void signalHandler(int signum) {
     signal_received = signum;
-    Logger::getInstance().print("\nReceived signal: " + std::string(strsignal(signum)));
+    Logger::getInstance().log("Received signal: " + std::string(strsignal(signum)), Logger::LogLevel::INFO);
 }
 
 /**

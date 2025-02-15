@@ -26,15 +26,15 @@
 // Functions //
 
 /**
- * @brief Uses a once_flag to ensure the Config object is only created once.
+ * @brief Uses a flag to ensure the arguments are only parsed once.
  * @param argc The number of command line arguments.
  * @param argv The command line arguments.
  */
 void Config::loadConfig(int argc, char* argv[]) {
-    std::call_once(configInitFlag, [&]() {
-        Config& instance = getInstance();
-        instance.parseCommandLine(argc, argv);
-    });
+    if(configLoaded) return;
+
+    Config& instance = getInstance();
+    instance.parseCommandLine(argc, argv);
 }
 
 // Getters //

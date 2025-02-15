@@ -82,7 +82,7 @@ private:
 
     // Utilities //
     void printMessage(const std::string& message) const;
-    void clearScreen() const { std::cout << "\033[2J\033[1;1H"; }
+    void clearScreen() const { std::system("clear"); }  //{ std::cout << "\033[2J\033[1;1H"; }
 
     // Connection Helpers //
     void quickConnect();

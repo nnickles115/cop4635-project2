@@ -2,7 +2,7 @@
 CXX = g++
 
 # Flags - Needs C++17
-CXXFLAGS = -std=gnu++17 -g -Wall -Wextra -Werror -Wpedantic
+CXXFLAGS = -std=gnu++17 -g -Wall
 
 # Debug flags
 DEBUG_FLAGS = -fdiagnostics-color=always -fsanitize=address

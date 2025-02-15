@@ -54,11 +54,11 @@ public:
 
 private:
     // Constants //
-    Config() = default;
+    Config() : configLoaded(false) {};
 
     // Data //
     ConfigData data;
-    std::once_flag configInitFlag; // For lazy initialization
+    bool configLoaded;
 
     // Parsing //
     void parseCommandLine(int argc, char* argv[]);

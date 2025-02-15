@@ -28,7 +28,7 @@ volatile std::sig_atomic_t signal_received = 0;
  */
 void signalHandler(int signum) {
     signal_received = signum;
-    Logger::getInstance().print("\nReceived SIG" + std::string(sigabbrev_np(signum)));
+    Logger::getInstance().print("\nReceived signal: " + std::string(strsignal(signum)));
 }
 
 /**
